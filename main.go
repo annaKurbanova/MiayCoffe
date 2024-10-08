@@ -7,6 +7,14 @@ import (
 )
 
 func main() {
+	// Указываем путь к папке с файлами
+	fs := http.FileServer(http.Dir("./static"))
+
+	// Обрабатываем запросы к "/static/" и перенаправляем на файловый сервер
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
+	
+
 	fmt.Println("helloWork")
 	http.HandleFunc("/hello", SeyHihi)
 	http.HandleFunc("/miay", handler)
