@@ -8,7 +8,6 @@ import (
 func main() {
 	forRange()
 
-
 }
 
 /*
@@ -38,7 +37,7 @@ func forRange() {
 	fmt.Println("четные числа: ", ItogMass)
 	//sort.Ints(numbers)
 	// вывести тут отсортированные числа
-	fmt.Println("отсортированные числа: ")
+	fmt.Println("отсортированные по убыванию числа: ")
 	var masItog []int //3,5,1
 	for i := 0; i < len(numbers); i++ {
 		var index int
@@ -50,24 +49,50 @@ func forRange() {
 	}
 	fmt.Println(masItog)
 
+	// Используем функцию Max чтобы получить не 1 число а массив.
+	var masMaksItog []int // Объявили массив для записи возрастающей сортировки.
+	for i := 0; i <= len(numbers); i++ {
+		var index int // переменные для хранения индекса и значения.
+		var sum int
+		index, sum = max(numbers)
+		numbers[index] = -1
+		masMaksItog = append(masMaksItog, sum)
+	}
+	fmt.Println("отсортированные по возрастанию числа:", (masMaksItog))
+
 }
 
 func min(nums []int) (int, int) {
 	var result int = 100
 	var j int
 	for i, value := range nums {
-		
+
 		if value < 0 {
 			continue
 		}
-		if value <= result {
+		if value < result {
 			result = value
-			j=i
+			j = i
 		}
 
 	}
-	
+
 	return j, result
+}
+func max(nums []int) (int, int) { // создаем массив и прописываем входные данные(nums []int) и выходные данны (int, int). Два инта потому что первый это индекс, второй значения как в range
+	var resultMax int = 0 // объявляем переменную котрая будет хранить 1 максимальное число
+	var jM int            // переменная которую мы преровняем к i чтобы в forRange было видно наш i(индекс)
+	for i, value := range nums {
+		if value < 0 {
+			continue
+		}
+		if value > resultMax {
+			resultMax = value
+			jM = i
+		}
+	}
+	return jM, resultMax
+
 }
 
 /*
