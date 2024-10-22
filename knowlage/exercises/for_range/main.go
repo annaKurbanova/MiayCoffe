@@ -3,27 +3,11 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	
 )
 
-type Sortirovka []int
-
-// Реализация метода Len для Sortirovka
-func (a Sortirovka) Len() int {
-	return len(a)
-}
-
-// Реализация метода Swap для Sortirovka
-func (a Sortirovka) Swap(i, j int) {
-	a[i], a[j] = a[j], a[i]
-}
-
-// Реализация метода Less для Sortirovka
-func (a Sortirovka) Less(i, j int) bool {
-	return a[i] < a[j]
-}
 func main() {
 	forRange()
+
 
 }
 
@@ -54,8 +38,36 @@ func forRange() {
 	fmt.Println("четные числа: ", ItogMass)
 	//sort.Ints(numbers)
 	// вывести тут отсортированные числа
-	fmt.Println("отсортированные числа: ", numbers)
+	fmt.Println("отсортированные числа: ")
+	var masItog []int //3,5,1
+	for i := 0; i < len(numbers); i++ {
+		var index int
+		var sum int
+		index, sum = min(numbers) // 1
+		numbers[index] = -1
+		masItog = append(masItog, sum)
 
+	}
+	fmt.Println(masItog)
+
+}
+
+func min(nums []int) (int, int) {
+	var result int = 100
+	var j int
+	for i, value := range nums {
+		
+		if value < 0 {
+			continue
+		}
+		if value <= result {
+			result = value
+			j=i
+		}
+
+	}
+	
+	return j, result
 }
 
 /*
