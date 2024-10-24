@@ -12,7 +12,9 @@
             "type": "leaf",
             "state": {
               "type": "graph",
-              "state": {}
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Граф"
             }
           },
           {
@@ -20,11 +22,23 @@
             "type": "leaf",
             "state": {
               "type": "graph",
-              "state": {}
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Граф"
+            }
+          },
+          {
+            "id": "ae68c38650680937",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Граф"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -44,7 +58,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Файловый менеджер"
             }
           },
           {
@@ -59,7 +75,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Поиск"
             }
           },
           {
@@ -67,7 +85,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Закладки"
             }
           }
         ]
@@ -97,7 +117,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Обратные ссылки"
             }
           },
           {
@@ -108,7 +130,9 @@
               "state": {
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Исходящие ссылки"
             }
           },
           {
@@ -119,7 +143,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Теги"
             }
           },
           {
@@ -127,7 +153,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {},
+              "icon": "lucide-list",
+              "title": "Структура"
             }
           }
         ]
@@ -147,38 +175,42 @@
       "command-palette:Открыть палитру команд": false
     }
   },
-  "active": "c676eae9deea1023",
+  "active": "ae68c38650680937",
   "lastOpenFiles": [
+    "library/Функции.md",
+    "library/Тратить баллы.md",
+    "library/Товары.md",
+    "library/Создать товары CRUD.md",
+    "library/Создание локального счета.md",
+    "library/Сгруппировать товары, группа.md",
+    "library/Регистрация.md",
+    "library/Регистрация клиента.md",
+    "library/Просмотр меню, сущность, товары.md",
+    "library/Получение сгруппированного перечня товаров.md",
+    "library/Перемещение товаров в корзину CRUD.md",
+    "library/Оформление заказа.md",
+    "library/Отслеживание КПД клиента.md",
+    "library/Корзина и ее редактирование.md",
+    "library/Книга обратной связи.md",
+    "library/Клиент.md",
+    "library/Заказ кофе.md",
+    "library/Вход в систему.md",
+    "library/Восстановление паролей.md",
+    "library/Бронь места.md",
+    "library/Без названия.canvas",
+    "library/Untitled.canvas",
+    "library/Untitled 1.canvas",
+    "library/TODO.md",
+    "library/MiayCoffe.md",
+    "MiayCoffe.md",
     "Без названия",
     "Клиент.md",
     "delete me now.md",
     "library/log.md",
-    "log.md",
-    "Функции.md",
-    "[Тратить баллы.md",
-    "[Создать товары CRUD.md",
-    "Товары.md",
-    "[Регистрация.md",
-    "MiayCoffe.md",
     "Без названия.canvas",
-    "[log.md",
     "Untitled 1.canvas",
     "Untitled.canvas",
-    "Регистрация клиента.md",
     "Untitled 2.canvas",
-    "Регистрация.md",
-    "Вход в систему.md",
-    "Восстановление паролей.md",
-    "Отслеживание КПД клиента.md",
-    "Книга обратной связи.md",
-    "Перемещение товаров в корзину CRUD.md",
-    "Получение сгруппированного перечня товаров.md",
-    "Оформление заказа.md",
-    "Заказ кофе.md",
-    "Просмотр меню, сущность, товары.md",
-    "Сгруппировать товары, группа.md",
-    "Корзина и ее редактирование.md",
-    "Тратить баллы.md",
     "servis/avtorization/avtorization.go",
     "servis/avtorization/avtorization",
     "servis/avtorization",

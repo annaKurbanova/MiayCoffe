@@ -6,7 +6,8 @@ import (
 )
 
 func main() {
-	forRange()
+	//forRange()
+	matrix2()
 
 }
 
@@ -18,9 +19,15 @@ func main() {
 func forRange() {
 
 	numbers := []int{}
+	numbers2 := []int{}
 
-	for i := 1; i < 10; i++ {
+	for i := 0; i < 10; i++ {
+		// r:=rand.Intn(10)
+		// numbers = append(numbers, r)
+		// numbers2 = append(numbers2, r)
+
 		numbers = append(numbers, rand.Intn(10))
+		numbers2 = append(numbers2, numbers[i])
 	}
 	ItogMass := []int{}
 	for _, value := range numbers {
@@ -32,6 +39,7 @@ func forRange() {
 	}
 
 	fmt.Printf("numbers: %v\n", numbers)
+	fmt.Printf("numbers2: %v\n", numbers2)
 
 	// вывести тут четные числа
 	fmt.Println("четные числа: ", ItogMass)
@@ -49,13 +57,16 @@ func forRange() {
 	}
 	fmt.Println(masItog)
 
+	fmt.Printf("numbers после: %v\n", numbers) // -1
+	fmt.Printf("numbers2 после: %v\n", numbers2) // рандом
+
 	// Используем функцию Max чтобы получить не 1 число а массив.
 	var masMaksItog []int // Объявили массив для записи возрастающей сортировки.
-	for i := 0; i <= len(numbers); i++ {
+	for i := 0; i <= len(numbers2); i++ {
 		var index int // переменные для хранения индекса и значения.
 		var sum int
-		index, sum = max(numbers)
-		numbers[index] = -1
+		index, sum = max(numbers2)
+		numbers2[index] = -1
 		masMaksItog = append(masMaksItog, sum)
 	}
 	fmt.Println("отсортированные по возрастанию числа:", (masMaksItog))
@@ -108,10 +119,47 @@ func max(nums []int) (int, int) { // создаем массив и пропис
 */
 func matrix() {
 	matrix := [][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
-	fmt.Printf("matrix: %v\n", matrix)
+	fmt.Printf("matrix: %vggg\n",5)
+	fmt.Println(matrix[0])
+	fmt.Println(matrix[1])
+	fmt.Println(matrix[2])
+	var su int
+	j :=0
+	for i := 0; i < len(matrix); i++ {
+		su= su+matrix[i][j]
+		j++
+	}
 
-	var sum int = 0
+
+	
 	// тут тебе поможет вложенный цикл
 
-	fmt.Println("сумма элементов главной диагонали: ", sum) // должно получиться 15
+	fmt.Println("сумма элементов главной диагонали: ", su) // должно получиться 15
+}
+/* вывести сумму четных чисел матрицы = 20
+Пример:
++-----+
+|1 2 3|
+|4 5 6|
+|7 8 9|
++-----+
+должно получиться: 2 + 4 + 6 + 8 = 20 */
+func matrix2 (){
+	matrix := [][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
+	fmt.Printf("matrix: %vggg\n",5)
+	fmt.Println(matrix[0])
+	fmt.Println(matrix[1])
+	fmt.Println(matrix[2])
+	var su int
+	
+	for i := 0; i < len(matrix); i++ {
+		for j := 0; j < len(matrix[i]); j++{
+			if matrix[i][j]%2==0{
+				su= su+ matrix[i][j]
+			}
+
+		}
+
+	}
+	fmt.Println("сумма элементов главной диагонали: ", su) // должно получиться 15
 }
