@@ -69,7 +69,7 @@ func forRange() {
 		numbers2[index] = -1
 		masMaksItog = append(masMaksItog, sum)
 	}
-	fmt.Println("отсортированные по возрастанию числа:", (masMaksItog))
+	fmt.Println("отсортированные по возрастанию числа:", masMaksItog)
 
 }
 
