@@ -195,6 +195,10 @@
   },
   "active": "c8c6acb3e962f0d9",
   "lastOpenFiles": [
+    "exercises/Lamb/task2.js",
+    "exercises/Lamb/task1.js",
+    "exercises/Lamb/1readme.md",
+    "exercises/Lamb",
     "library/log.md",
     "library/1Журнал.md",
     "Без названия 1",
@@ -225,9 +229,7 @@
     "library/Untitled.canvas",
     "library/Untitled 1.canvas",
     "library/TODO.md",
-    "MiayCoffe.md",
     "Без названия",
-    "Клиент.md",
     "Без названия.canvas",
     "Untitled 1.canvas",
     "Untitled.canvas",
@@ -235,7 +237,6 @@
     "servis/avtorization/avtorization.go",
     "servis/avtorization/avtorization",
     "servis/avtorization",
-    "servis",
-    "library/registration"
+    "servis"
   ]
 }
