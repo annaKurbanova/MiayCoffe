@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiayCoffe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">MiayCoffe</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#menu">Меню</a></li>
+                    <li><a href="#order">Сделать заказ</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
+                    <li><a href="#support">Поддержка</a></li>
+                </ul>
+            </nav>
+        </div>
+        <style>
+            /* Основные стили */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #ececec; /* Основной цвет */
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Стили заголовка */
+header {
+    background-color: #b69989;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.logo {
+    font-family: 'Georgia', serif;
+    font-size: 36px;
+    color: #fff;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+/* Секция hero */
+.hero {
+    background-color: #e4d5b8;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 48px;
+    color: #333;
+}
+
+.hero p {
+    font-size: 24px;
+    color: #555;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.primary-btn {
+    background-color: #b69989;
+    color: #fff;
+}
+
+.secondary-btn {
+    background-color: #e4d5b8;
+    color: #333;
+    border: 2px solid #b69989;
+}
+
+/* Стили меню */
+.menu-section {
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+.menu-items {
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu-item {
+    text-align: center;
+}
+
+.menu-item img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.menu-item h3 {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+/* Стили заказа */
+.order-section {
+    background-color: #ececec;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.order-section h2 {
+    font-size: 36px;
+}
+
+/* Стили отзывов */
+.reviews-section {
+    background-color: #b69989;
+    padding: 50px 0;
+    color: #fff;
+    text-align: center;
+}
+
+.reviews-section h2 {
+    font-size: 36px;
+}
+
+.reviews-section p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 10px auto;
+}
+
+/* Стили поддержки */
+.support-section {
+    background-color: #ececec;
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* Стили футера */
+footer {
+    background-color: #b69989;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+        </style>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Добро пожаловать в MiayCoffe</h2>
+            <p>Лучший кофе для вашего вдохновения</p>
+            <a href="#menu" class="btn primary-btn">Посмотреть меню</a>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <h2>Наше Меню</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="coffee1.jpg" alt="Капучино">
+                    <h3>Капучино</h3>
+                    <p>Мягкий вкус и аромат</p>
+                </div>
+                <div class="menu-item">
+                    <img src="coffee2.jpg" alt="Латте">
+                    <h3>Латте</h3>
+                    <p>Классический напиток</p>
+                </div>
+                <div class="menu-item">
+                    <img src="coffee3.jpg" alt="Эспрессо">
+                    <h3>Эспрессо</h3>
+                    <p>Насыщенный вкус</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="order" class="order-section">
+        <div class="container">
+            <h2>Сделать заказ</h2>
+            <a href="#" class="btn secondary-btn">Заказать онлайн</a>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <h2>Отзывы наших клиентов</h2>
+            <p>"Лучший кофе, который я пробовал! Отличное обслуживание и уютная атмосфера." - Анна</p>
+            <p>"Всегда сюда возвращаюсь за чашечкой капучино!" - Михаил</p>
+        </div>
+    </section>
+
+    <section id="support" class="support-section">
+        <div class="container">
+            <h2>Поддержка</h2>
+            <p>Если у вас возникли вопросы, свяжитесь с нами через email: support@miaycoffe.com</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>MiayCoffe © 2024. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -17,10 +17,26 @@ func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	http.HandleFunc("/hello", SeyHihi)
-	http.HandleFunc("/miay", handler)
+	http.HandleFunc("/miay1", handler)
 	http.HandleFunc("/registration", hendlerGuest)
+	http.HandleFunc("/miay2", PodkluchenieHTMLsCC)
+	//http://127.0.0.1:1324/miay2
 	http.ListenAndServe("127.0.0.1:1324", nil)
 
+}
+func PodkluchenieHTMLsCC (w http.ResponseWriter, r *http.Request){
+	// Парсим HTML-шаблон
+	tmpl, err := template.ParseFiles("index2.html")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	// Рендерим шаблон в ответе
+	err = tmpl.Execute(w, nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
 }
 
 func SeyHihi(w http.ResponseWriter, r *http.Request) {
@@ -30,7 +46,7 @@ func SeyHihi(w http.ResponseWriter, r *http.Request) {
 }
 func handler(w http.ResponseWriter, r *http.Request) {
 	// Парсим HTML-шаблон
-	tmpl, err := template.ParseFiles("index.html")
+	tmpl, err := template.ParseFiles("index1.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
