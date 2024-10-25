@@ -19,7 +19,7 @@ func main() {
 	http.HandleFunc("/hello", SeyHihi)
 	http.HandleFunc("/miay", handler)
 	http.HandleFunc("/registration", hendlerGuest)
-	http.ListenAndServe("127.0.0.1:80", nil)
+	http.ListenAndServe("127.0.0.1:1324", nil)
 
 }
 
