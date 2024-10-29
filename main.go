@@ -2,7 +2,7 @@ package main
 
 import (
 	"MiayCoffe/knowlage/servis/avtorization"
-	
+
 	"encoding/json"
 	"fmt"
 	"html/template"
@@ -13,7 +13,6 @@ func main() {
 	// Указываем путь к папке с файлами
 	// удалить
 	fs := http.FileServer(http.Dir("./static"))
-
 
 	// Обрабатываем запросы к "/static/" и перенаправляем на файловый сервер
 	fmt.Println("helloWork")
@@ -26,7 +25,8 @@ func main() {
 	//http://127.0.0.1:1324/miay2
 	//регистрация пользователя
 	http.HandleFunc("/Registration", KeisDliaAvtorizacii)
-	http.ListenAndServe("127.0.0.1:1324", nil)
+	http.ListenAndServe(":1324", nil)
+	//http.ListenAndServe("127.0.0.1:1324", nil)
 
 }
 func PodkluchenieHTMLsCC(w http.ResponseWriter, r *http.Request) {
@@ -72,31 +72,30 @@ func hendlerGuest(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
-	avtorization.CreateUser(Person.Name, Person.Password, Person.PhoneNumber)
+	avtorization.CreateUser(Person.Name, Person.PhoneNumber)
 }
-
+//это тип для запроса, какие данные нам должны вернуться 
 type DataGuest struct {
-	Name        string
-	Password    string
-	PhoneNumber int
+	Name        string `json:"Name"`
+	PhoneNumber string `json:"PhoneNumber"`
 }
 
 func KeisDliaAvtorizacii(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("KeisDliaAvtorizacii")
-	type Person struct {
-		Login       string
-		Password    string
-		PhoneNumber int
-	}
-	var p Person
+	var p DataGuest
 
 	// Try to decode the request body into the struct. If there is an error,
 	// respond to the client with the error message and a 400 status code.
+	if r.Method != http.MethodPost{
+		http.Error(w, "Метод не поддерживается", http.StatusMethodNotAllowed)
+		return
+	}
 	err := json.NewDecoder(r.Body).Decode(&p)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
-	avtorization.Registration(p.Login, p.Password, p.PhoneNumber)
+	avtorization.Registration(p.Name, p.PhoneNumber)
+	fmt.Println("Сервер запущен на http://localhost:1324")
+	w.WriteHeader(http.StatusOK)
 
 }

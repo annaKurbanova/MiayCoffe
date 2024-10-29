@@ -2,7 +2,7 @@ package avtorization
 
 import (
 	"fmt"
-	"net/http"
+	//"net/http"
 )
 
 type Avtorization struct {
@@ -12,8 +12,8 @@ func NewAvtorization() Avtorization {
 	return Avtorization{}
 }
 
-func (das Avtorization) Registration(password string, login string, phoneNumber int) {
-	Registration(password, login, phoneNumber)
+func (das Avtorization) Registration(login string, phoneNumber string) {
+	Registration(login, phoneNumber)
 }
 
 // ---
@@ -24,30 +24,30 @@ type Guest struct {
 	password     string
 	registeredAt int
 	pole         string
-	phoneNumber  int
+	phoneNumber  string
 	status       string
 }
 
 var MnogoGuestov []Guest = []Guest{}
 
-func CreateUser(Name string, ps string, PNumber int) {
-	MnogoGuestov = append(MnogoGuestov, Guest{name: Name, password: ps, phoneNumber: PNumber})
+func CreateUser(Name string, PNumber string) {
+	MnogoGuestov = append(MnogoGuestov, Guest{name: Name, phoneNumber: PNumber})
 	fmt.Println(MnogoGuestov)
 }
-func Registration(password string, login string, phoneNumber int) {
+func Registration(login string, phoneNumber string) {
 	//var polzovatel Guest= Guest{}
 	polzovatel := Guest{
-		password:    password,
 		name:        login,
 		phoneNumber: phoneNumber,
 	}
 	MnogoGuestov = append(MnogoGuestov, polzovatel)
 
 }
-func VxodKeys(w http.ResponseWriter, r *http.Request) {
-	v := func(string, string) {
-		Registration(password string, login string)
-	}
-	v()
 
-}
+// func VxodKeys(w http.ResponseWriter, r *http.Request) {
+// 	v := func(string, string) {
+// 		Registration(password string, login string)
+// 	}
+// 	v()
+
+// }
