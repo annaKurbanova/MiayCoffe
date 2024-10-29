@@ -9,6 +9,7 @@
 <body>
     <header>
         <div class="container">
+            <button class="button_modal"> Регистрация</button>
             <h1 class="logo">MiayCoffe</h1>
             <nav>
                 <ul class="nav-links">
@@ -172,10 +173,70 @@ footer {
     padding: 20px 0;
     text-align: center;
 }
+.button_modal{
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    background-color: #ececec;
+    border-radius: 15px;
+    border: 1px solid black;
+    font-weight: 600;
+    position: absolute;
+    top: 25px;
+right: 25px;
+cursor: pointer;
+}
+.modal_window{
+    background-color:#b69989f1 ;
+    border-radius: 15px;
+    position: fixed;
+top: calc(50vh - 199px);
+left: calc(50% - 190px);
+padding: 10px 35px; 
+text-align: center;
+display: none;
+
+}
+h1{
+    margin-bottom: 30px;
+}
+input{
+    width: 300px;
+    padding: 13px 7px;
+    margin:10px 0 35px 0;
+    background-color: #ececec;
+    border: 0.5px solid rgba(0, 0, 0, 0.672);
+    border-radius: 5px;
+    font-size: 16px;
+}
+.field{
+    font-size: 20px;
+    font-weight: 500;
+    text-align: start;
+}
+.button_registration{
+    padding: 14px;
+    background-color: #ececec;
+    border-radius: 15px;
+    border: 1px solid black;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
 
         </style>
     </header>
-
+<div class="modal_window">
+    <h1>Регистрация</h1>
+    <form action="http://localhost:1324/registration" method="post">
+        <div class="field">Ваше Имя:<br>
+            <input type="text" id="name_user" placeholder="Например: Анна">
+        </div>
+        <div class="field">Ваш Номер Телефона:<br>
+            <input type="text" id="telephone_user" placeholder="Например: 8 800 888 77 66">
+        </div>
+    </form>
+    <button class="button_registration">Зарегистрироваться</button>
+</div>
     <section class="hero">
         <div class="container">
             <h2>Добро пожаловать в MiayCoffe</h2>
@@ -234,5 +295,6 @@ footer {
             <p>MiayCoffe © 2024. Все права защищены.</p>
         </div>
     </footer>
+    <script src="/static/index2.js"></script>
 </body>
 </html>
