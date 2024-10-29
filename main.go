@@ -11,6 +11,7 @@ import (
 
 func main() {
 	// Указываем путь к папке с файлами
+	// удалить
 	fs := http.FileServer(http.Dir("./static"))
 
 
