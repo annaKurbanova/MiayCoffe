@@ -9,7 +9,8 @@
 <body>
     <header>
         <div class="container">
-            <button class="button_modal"> Регистрация</button>
+            <button class="button_modal_registration"> Регистрация</button>
+            <button class="button_modal_entrance"> Вход </button>
             <h1 class="logo">MiayCoffe</h1>
             <nav>
                 <ul class="nav-links">
@@ -173,20 +174,33 @@ footer {
     padding: 20px 0;
     text-align: center;
 }
-.button_modal{
-    padding: 15px;
+.button_modal_registration{
+    padding: 10px;
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
     background-color: #ececec;
     border-radius: 15px;
     border: 1px solid black;
     font-weight: 600;
     position: absolute;
-    top: 25px;
+    top: 30px;
+right: 100px;
+cursor: pointer;
+}
+.button_modal_entrance{
+    padding: 10px;
+    text-align: center;
+    font-size: 15px;
+    background-color: #ececec;
+    border-radius: 15px;
+    border: 1px solid black;
+    font-weight: 600;
+    position: absolute;
+    top: 30px;
 right: 25px;
 cursor: pointer;
 }
-.modal_window{
+.modal_window_registration{
     background-color:#b69989f1 ;
     border-radius: 15px;
     position: fixed;
@@ -195,7 +209,16 @@ left: calc(50% - 190px);
 padding: 10px 35px; 
 text-align: center;
 display: none;
-
+}
+.modal_window_entrance{
+    background-color:#b69989f1 ;
+    border-radius: 15px;
+    position: fixed;
+top: calc(50vh - 199px);
+left: calc(50% - 190px);
+padding: 10px 35px; 
+text-align: center;
+display: none;
 }
 h1{
     margin-bottom: 30px;
@@ -221,11 +244,23 @@ input{
     border: 1px solid black;
     font-size: 18px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
-
+.button_entrance{
+    padding: 14px;
+    background-color: #ececec;
+    border-radius: 15px;
+    border: 1px solid black;
+    font-size: 18px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.active{
+    display: block;
+}
         </style>
     </header>
-<div class="modal_window">
+<div class="modal_window_registration">
     <h1>Регистрация</h1>
     <form action="http://localhost:1324/registration" method="post">
         <div class="field">Ваше Имя:<br>
@@ -236,6 +271,18 @@ input{
         </div>
     </form>
     <button class="button_registration">Зарегистрироваться</button>
+</div>
+<div class="modal_window_entrance">
+    <h1>Вход</h1>
+    <form action="http://localhost:1324/registration" method="post">
+        <div class="field">Введите Ваше Имя:<br>
+            <input type="text" id="name_user" placeholder="Например: Анна">
+        </div>
+        <div class="field">Введите Ваш Номер Телефона:<br>
+            <input type="text" id="telephone_user" placeholder="Например: 8 800 888 77 66">
+        </div>
+    </form>
+    <button class="button_entrance">Войти</button>
 </div>
     <section class="hero">
         <div class="container">
