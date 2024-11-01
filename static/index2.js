@@ -2,11 +2,11 @@ const button_modal = document.querySelector('.button_modal')
 const modal_window = document.querySelector('.modal_window')
 const button_registration = document.querySelector('.button_registration')
 
+console.log("registration handle")
+
 button_modal.onclick = function(){
 modal_window.style.display='block'
 }
-
-const btn = document.querySelector(".button");
 
 button_registration.addEventListener("click", async () => {
   
@@ -17,6 +17,7 @@ button_registration.addEventListener("click", async () => {
 
   try {
     const responce = await fetch("http://localhost:1324/registration", {
+      mode: "no-cors",
       method: "POST",
       headers: {
         "Content-Type": "application/json",

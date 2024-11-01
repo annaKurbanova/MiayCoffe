@@ -23,6 +23,8 @@ func main() {
 	http.HandleFunc("/registration", hendlerGuest)
 	http.HandleFunc("/miay2", PodkluchenieHTMLsCC)
 	//http://127.0.0.1:1324/miay2
+	//Ручка для входа
+	http.HandleFunc("/Vhod", KeisDliaVxoda)
 	//регистрация пользователя
 	http.HandleFunc("/Registration", KeisDliaAvtorizacii)
 	http.ListenAndServe(":1324", nil)
@@ -74,7 +76,8 @@ func hendlerGuest(w http.ResponseWriter, r *http.Request) {
 	}
 	avtorization.CreateUser(Person.Name, Person.PhoneNumber)
 }
-//это тип для запроса, какие данные нам должны вернуться 
+
+// это тип для запроса, какие данные нам должны вернуться
 type DataGuest struct {
 	Name        string `json:"Name"`
 	PhoneNumber string `json:"PhoneNumber"`
@@ -85,7 +88,7 @@ func KeisDliaAvtorizacii(w http.ResponseWriter, r *http.Request) {
 
 	// Try to decode the request body into the struct. If there is an error,
 	// respond to the client with the error message and a 400 status code.
-	if r.Method != http.MethodPost{
+	if r.Method != http.MethodPost {
 		http.Error(w, "Метод не поддерживается", http.StatusMethodNotAllowed)
 		return
 	}
@@ -97,5 +100,20 @@ func KeisDliaAvtorizacii(w http.ResponseWriter, r *http.Request) {
 	avtorization.Registration(p.Name, p.PhoneNumber)
 	fmt.Println("Сервер запущен на http://localhost:1324")
 	w.WriteHeader(http.StatusOK)
+}
 
+func KeisDliaVxoda(w http.ResponseWriter, r *http.Request) {
+	var p DataGuest
+	if r.Method != http.MethodPost {
+		http.Error(w, "Метод не поддерживается", http.StatusMethodNotAllowed)
+		return
+	}
+	err := json.NewDecoder(r.Body).Decode(&p)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+	avtorization.Vxod(p.Name, p.PhoneNumber)
+	fmt.Println("Сервер запущен на http://localhost:1324")
+	w.WriteHeader(http.StatusOK)
 }
