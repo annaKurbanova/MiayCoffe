@@ -9,17 +9,23 @@ const button_entrance = document.querySelector('.button_entrance'); // Кноп�
 
 const name_user = document.querySelector('#name_user'); // Поле ввода имени пользователя
 const telephone_user = document.querySelector('#telephone_user'); // Поле ввода номера телефона пользователя
-
+const name_user2 = document.querySelector('#name_user2');
+const telephone_user2 = document.querySelector('#telephone_user2');
 // Функция для открытия и закрытия модального окна регистрации
 button_modal_registration.onclick = function () {
+    name_user.value=""
+    telephone_user.value=""
     modal_window_registration.classList.toggle('active'); // Показать/скрыть модалку регистрации
     modal_window_entrance.classList.remove('active'); // Закрыть модалку входа, если она открыта
 };
 
 // Функция для открытия и закрытия модального окна входа
 button_modal_entrance.onclick = function () {
+    name_user2.value=""
+    telephone_user2.value=""
     modal_window_entrance.classList.toggle('active'); // Показать/скрыть модалку входа
     modal_window_registration.classList.remove('active'); // Закрыть модалку регистрации, если она открыта
+
 };
 
 // Асинхронная функция для отправки POST-запроса на сервер
@@ -53,14 +59,29 @@ button_registration.addEventListener("click", () => {
         Name: name_user.value, // Считываем имя пользователя из поля ввода
         PhoneNumber: telephone_user.value, // Считываем номер телефона из поля ввода
     };
+    if (!name_user.value || !telephone_user.value) {//Проверка на заполнение полей
+        button_registration.style.boxShadow="0 0 10px red";
+        return;
+    }else{
+        modal_window_registration.classList.remove('active');//Закрываем модалку после отправки запроса
+    }
     sendRequest("http://localhost:1324/registration", bodyData); // Отправляем запрос с данными на сервер
 });
 
 // Обработчик кнопки входа
 button_entrance.addEventListener("click", () => {
     const bodyData = {
-        Name: name_user.value, // Считываем имя пользователя из поля ввода
-        PhoneNumber: telephone_user.value, // Считываем номер телефона из поля ввода
+        Name: name_user2.value, // Считываем имя пользователя из поля ввода
+        PhoneNumber: telephone_user2.value, // Считываем номер телефона из поля ввода
     };
-    sendRequest("http://localhost:1324/registration", bodyData); // Отправляем запрос с данными на сервер
+    if (!name_user2.value || !telephone_user2.value) {//Проверка на заполнение полей
+        button_entrance.style.boxShadow="0 0 10px red";
+        return;
+    }else{
+        modal_window_entrance.classList.remove('active');//Закрываем модалку после отправки запроса
+    }
+    sendRequest("http://localhost:1324/Vhod", bodyData); // Отправляем запрос с данными на сервер
+    
+   
+    
 });

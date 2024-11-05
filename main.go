@@ -15,11 +15,11 @@ func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", fs)) // Маршрутизация для статических файлов
 
 	// Маршрутизация для обработки различных URL-адресов
-	http.HandleFunc("/hello", SeyHihi)                  // Маршрут для теста
-	http.HandleFunc("/miay1", handler)                  // Маршрут для первого HTML
-	http.HandleFunc("/miay2", PodkluchenieHTMLsCC)      // Маршрут для второго HTML
-	http.HandleFunc("/registration", CorsTest)          // Маршрут для регистрации с поддержкой CORS
-	http.HandleFunc("/Vhod", KeisDliaVxoda)             // Маршрут для входа пользователя
+	http.HandleFunc("/hello", SeyHihi)             // Маршрут для теста
+	http.HandleFunc("/miay1", handler)             // Маршрут для первого HTML
+	http.HandleFunc("/miay2", PodkluchenieHTMLsCC) // Маршрут для второго HTML
+	http.HandleFunc("/registration", CorsTest)     // Маршрут для регистрации с поддержкой CORS
+	http.HandleFunc("/Vhod", KeisDliaVxoda)        // Маршрут для входа пользователя
 
 	fmt.Println("Сервер запущен на http://localhost:1324")
 	http.ListenAndServe(":1324", nil) // Запускаем сервер на порту 1324
@@ -28,8 +28,8 @@ func main() {
 // Функция CorsTest обрабатывает запросы с поддержкой CORS для маршрута /registration
 func CorsTest(w http.ResponseWriter, r *http.Request) {
 	// Устанавливаем заголовки для разрешения CORS
-	w.Header().Set("Access-Control-Allow-Origin", "*")        // Разрешает доступ с любого источника
-	w.Header().Set("Access-Control-Allow-Methods", "POST")    // Разрешает метод POST
+	w.Header().Set("Access-Control-Allow-Origin", "*")             // Разрешает доступ с любого источника
+	w.Header().Set("Access-Control-Allow-Methods", "POST")         // Разрешает метод POST
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type") // Разрешает заголовок Content-Type
 
 	// Обрабатываем preflight-запросы (OPTIONS)
@@ -88,6 +88,20 @@ type DataGuest struct {
 
 // Обработчик для входа пользователя
 func KeisDliaVxoda(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("KeisDliaVxoda")
+	fmt.Println(r.Method)
+	// Устанавливаем заголовки для разрешения CORS
+	w.Header().Set("Access-Control-Allow-Origin", "*")             // Разрешает доступ с любого источника
+	w.Header().Set("Access-Control-Allow-Methods", "POST")         // Разрешает метод POST
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type") // Разрешает заголовок Content-Type
+
+	// Обрабатываем preflight-запросы (OPTIONS)
+	if r.Method == http.MethodOptions {
+		fmt.Println("Обработан preflight-запрос")
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+
 	// Проверяем, что метод запроса — POST
 	if r.Method != http.MethodPost {
 		http.Error(w, "Метод не поддерживается", http.StatusMethodNotAllowed)
@@ -103,8 +117,14 @@ func KeisDliaVxoda(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Вызываем функцию входа пользователя из модуля авторизации
-	avtorization.Vxod(person.Name, person.PhoneNumber)
-	fmt.Println("Запрос на вход пользователя получен")
+	res := avtorization.Vxod(person.Name, person.PhoneNumber)
+	fmt.Println("Запрос на вход пользователя получен", res)
+
+	err = json.NewEncoder(w).Encode(res)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
 
 	// Успешный ответ
 	w.WriteHeader(http.StatusOK)
