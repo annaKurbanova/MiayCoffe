@@ -9,8 +9,8 @@
 <body>
     <header>
         <div class="container">
-            <button class="button_modal_registration"> Регистрация</button>
-            <button class="button_modal_entrance"> Вход </button>
+            <button class="button_modal_registration">Регистрация</button>
+            <button class="button_modal_entrance">Вход</button>
             <h1 class="logo">MiayCoffe</h1>
             <nav>
                 <ul class="nav-links">
@@ -21,269 +21,37 @@
                 </ul>
             </nav>
         </div>
-        <style>
-            /* Основные стили */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #ececec; /* Основной цвет */
-    color: #333;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Стили заголовка */
-header {
-    background-color: #b69989;
-    padding: 20px 0;
-    text-align: center;
-}
-
-.logo {
-    font-family: 'Georgia', serif;
-    font-size: 36px;
-    color: #fff;
-    margin: 0;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 18px;
-}
-
-/* Секция hero */
-.hero {
-    background-color: #e4d5b8;
-    padding: 100px 0;
-    text-align: center;
-}
-
-.hero h2 {
-    font-size: 48px;
-    color: #333;
-}
-
-.hero p {
-    font-size: 24px;
-    color: #555;
-}
-
-.btn {
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 18px;
-    margin-top: 20px;
-}
-
-.primary-btn {
-    background-color: #b69989;
-    color: #fff;
-}
-
-.secondary-btn {
-    background-color: #e4d5b8;
-    color: #333;
-    border: 2px solid #b69989;
-}
-
-/* Стили меню */
-.menu-section {
-    padding: 50px 0;
-    background-color: #fff;
-}
-
-.menu-items {
-    display: flex;
-    justify-content: space-around;
-}
-
-.menu-item {
-    text-align: center;
-}
-
-.menu-item img {
-    width: 200px;
-    height: auto;
-    border-radius: 10px;
-}
-
-.menu-item h3 {
-    font-size: 24px;
-    margin-top: 10px;
-}
-
-/* Стили заказа */
-.order-section {
-    background-color: #ececec;
-    padding: 50px 0;
-    text-align: center;
-}
-
-.order-section h2 {
-    font-size: 36px;
-}
-
-/* Стили отзывов */
-.reviews-section {
-    background-color: #b69989;
-    padding: 50px 0;
-    color: #fff;
-    text-align: center;
-}
-
-.reviews-section h2 {
-    font-size: 36px;
-}
-
-.reviews-section p {
-    font-size: 18px;
-    max-width: 600px;
-    margin: 10px auto;
-}
-
-/* Стили поддержки */
-.support-section {
-    background-color: #ececec;
-    padding: 50px 0;
-    text-align: center;
-}
-
-/* Стили футера */
-footer {
-    background-color: #b69989;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-}
-.button_modal_registration{
-    padding: 10px;
-    text-align: center;
-    font-size: 15px;
-    background-color: #ececec;
-    border-radius: 15px;
-    border: 1px solid black;
-    font-weight: 600;
-    position: absolute;
-    top: 30px;
-right: 100px;
-cursor: pointer;
-}
-.button_modal_entrance{
-    padding: 10px;
-    text-align: center;
-    font-size: 15px;
-    background-color: #ececec;
-    border-radius: 15px;
-    border: 1px solid black;
-    font-weight: 600;
-    position: absolute;
-    top: 30px;
-right: 25px;
-cursor: pointer;
-}
-.modal_window_registration{
-    background-color:#b69989f1 ;
-    border-radius: 15px;
-    position: fixed;
-top: calc(50vh - 199px);
-left: calc(50% - 190px);
-padding: 10px 35px; 
-text-align: center;
-display: none;
-}
-.modal_window_entrance{
-    background-color:#b69989f1 ;
-    border-radius: 15px;
-    position: fixed;
-top: calc(50vh - 199px);
-left: calc(50% - 190px);
-padding: 10px 35px; 
-text-align: center;
-display: none;
-}
-h1{
-    margin-bottom: 30px;
-}
-input{
-    width: 300px;
-    padding: 13px 7px;
-    margin:10px 0 35px 0;
-    background-color: #ececec;
-    border: 0.5px solid rgba(0, 0, 0, 0.672);
-    border-radius: 5px;
-    font-size: 16px;
-}
-.field{
-    font-size: 20px;
-    font-weight: 500;
-    text-align: start;
-}
-.button_registration{
-    padding: 14px;
-    background-color: #ececec;
-    border-radius: 15px;
-    border: 1px solid black;
-    font-size: 18px;
-    margin-bottom: 20px;
-    cursor: pointer;
-}
-.button_entrance{
-    padding: 14px;
-    background-color: #ececec;
-    border-radius: 15px;
-    border: 1px solid black;
-    font-size: 18px;
-    margin-bottom: 20px;
-    cursor: pointer;
-}
-.active{
-    display: block;
-}
-        </style>
     </header>
-<div class="modal_window_registration">
-    <h1>Регистрация</h1>
-    <form action="http://localhost:1324/registration" method="post">
-        <div class="field">Ваше Имя:<br>
-            <input type="text" id="name_user" placeholder="Например: Анна">
-        </div>
-        <div class="field">Ваш Номер Телефона:<br>
-            <input type="text" id="telephone_user" placeholder="Например: 8 800 888 77 66">
-        </div>
-    </form>
-    <button class="button_registration">Зарегистрироваться</button>
-</div>
-<div class="modal_window_entrance">
-    <h1>Вход</h1>
-    <form action="http://localhost:1324/registration" method="post">
-        <div class="field">Введите Ваше Имя:<br>
-            <input type="text" id="name_user" placeholder="Например: Анна">
-        </div>
-        <div class="field">Введите Ваш Номер Телефона:<br>
-            <input type="text" id="telephone_user" placeholder="Например: 8 800 888 77 66">
-        </div>
-    </form>
-    <button class="button_entrance">Войти</button>
-</div>
+
+    <!-- Модальное окно для регистрации -->
+    <div class="modal_window_registration">
+        <h1>Регистрация</h1>
+        <form action="http://localhost:1324/registration" method="post">
+            <div class="field">Ваше Имя:<br>
+                <input type="text" name="name_user" id="name_user" placeholder="Например: Анна">
+            </div>
+            <div class="field">Ваш Номер Телефона:<br>
+                <input type="text" name="telephone_user" id="telephone_user" placeholder="Например: 8 800 888 77 66">
+            </div>
+            <button type="submit" class="button_registration">Зарегистрироваться</button>
+        </form>
+    </div>
+
+    <!-- Модальное окно для входа -->
+    <div class="modal_window_entrance">
+        <h1>Вход</h1>
+        <form action="http://localhost:1324/entrance" method="post">
+            <div class="field">Введите Ваше Имя:<br>
+                <input type="text" name="name_user" id="name_user" placeholder="Например: Анна">
+            </div>
+            <div class="field">Введите Ваш Номер Телефона:<br>
+                <input type="text" name="telephone_user" id="telephone_user" placeholder="Например: 8 800 888 77 66">
+            </div>
+            <button type="submit" class="button_entrance">Войти</button>
+        </form>
+    </div>
+
+    <!-- Основной контент -->
     <section class="hero">
         <div class="container">
             <h2>Добро пожаловать в MiayCoffe</h2>
@@ -292,6 +60,7 @@ input{
         </div>
     </section>
 
+    <!-- Меню -->
     <section id="menu" class="menu-section">
         <div class="container">
             <h2>Наше Меню</h2>
@@ -342,6 +111,8 @@ input{
             <p>MiayCoffe © 2024. Все права защищены.</p>
         </div>
     </footer>
+
+    <!-- Подключение JavaScript -->
     <script src="/static/index2.js"></script>
 </body>
 </html>
