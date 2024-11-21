@@ -1,3 +1,7 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 #main_container{
     background-image:url(/static/main_pic.jpg);
     background-position: center center;
@@ -183,5 +187,12 @@ h1{
     margin-bottom: 20px;
     cursor: pointer;
     }
- 
+ .header_menu{
+    width: 90%;
+    padding: 20px;
+    background-color: #e4d5b8;
+    text-align: center;
+    border-radius: 30px;
+ }
+
     

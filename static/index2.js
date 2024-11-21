@@ -16,6 +16,7 @@ const button_menu = document.querySelector(".button_menu");
 const fast_menu_modal = document.querySelector(".fast_menu_modal");
 const close_modal = document.querySelector('.close_modal');
 
+const positionsContainer = document.querySelector(".positions");
 
 button_menu.onclick = function(){
     fast_menu_modal.classList.add('active_modal');
@@ -99,3 +100,56 @@ button_entrance.addEventListener("click", () => {
    
     
 });
+
+// fetch("http://localhost:1323/positions")
+// .then(response => response.json())
+// .then((positions) =>{
+//     positions.innerHTML=""//oчистка
+//     console.log("positions:", positions);
+// positions.forEach(position => {
+//  positions.innerHTML += `
+//  <div class="position">
+//     <img style=width:70px; src="/static/main_pic.jpg">
+//         <h3>${position.name}</h3>
+//         <p>${position.price}</p>
+// </div>
+//  `;   
+// });
+// });
+async function getPositions() {
+    try {
+        // GET-запрос к серверу
+        const response = await fetch('http://localhost:1323/positions', {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        //проверка, что запрос успешный
+        if (!response.ok) {
+            throw new Error(`Ошибка HTTP: ${response.status}`);//получаем ошибки с данными
+        }
+
+        //получаем JSON-строку и парсим в объект
+        const data = await response.json();
+        const parsedData = JSON.parse(data);
+
+        //очистка контейнер перед вставкой новых данных
+        positionsContainer.innerHTML = '';
+
+        // динамические вывод и преобразование в массив
+        Object.values(parsedData).forEach((position) => {
+            positionsContainer.innerHTML += `
+                <div class="position" style="border: 1px solid #ccc; margin: 10px; padding: 10px;">
+                    <img style="width: 70px;" src="${position.photo}" alt="${position.name}">
+                    <h3>${position.name}</h3>
+                    <p>${position.price}</p>
+                </div>
+            `;
+        });
+    } catch (err) {
+        //ошибки
+        console.error("Ошибка при запросе:", err);
+    }
+}
+
+getPositions();
