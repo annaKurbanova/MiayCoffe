@@ -45,103 +45,103 @@ func positions(c echo.Context) error {
 	{
   "position1": {
     "name": "Капучино",
-    "price": "200 руб.",
+    "price": "200 ",
 "photo":"https://img.freepik.com/premium-photo/italian-cappuccino-with-decoration_159805-806.jpg?w=826",  
   "category": "coffee"
   },
   "position2": {
     "name": "Латте",
-    "price": "220 руб.",
+    "price": "220 ",
 "photo":"https://img.freepik.com/premium-photo/italian-cappuccino-with-decoration_159805-806.jpg?w=826",  
     "category": "coffee"
   },
   "position3": {
     "name": "Эспрессо",
-    "price": "100 руб.",
+    "price": "100 ",
 "photo":"https://img.freepik.com/premium-photo/italian-cappuccino-with-decoration_159805-806.jpg?w=826",  
     "category": "coffee"
   },
   "position4": {
     "name": "Раф",
-    "price": "300 руб.",
+    "price": "300 ",
 "photo":"https://img.freepik.com/premium-photo/italian-cappuccino-with-decoration_159805-806.jpg?w=826",  
     "category": "coffee"
   },
   "position5": {
     "name": "Ассам",
-    "price": "100 руб.",
+    "price": "100 ",
     "photo": "https://www.chay.info/upload/medialibrary/146/3i03anmkw7cwyvo0v96xi857k1pxqi8a.jpeg",
     "category": "tea"
   },
   "position6": {
     "name": "Сенча",
-    "price": "100 руб.",
+    "price": "100 ",
  "photo": "https://www.chay.info/upload/medialibrary/146/3i03anmkw7cwyvo0v96xi857k1pxqi8a.jpeg",
      "category": "tea"
   },
   "position7": {
-    "name": "Горный сбор",
-    "price": "100 руб.",
+    "name": "Травянной",
+    "price": "100 ",
  "photo": "https://www.chay.info/upload/medialibrary/146/3i03anmkw7cwyvo0v96xi857k1pxqi8a.jpeg",
      "category": "tea"
   },
   "position8": {
     "name": "Ягодный",
-    "price": "150 руб.",
+    "price": "150 ",
  "photo": "https://www.chay.info/upload/medialibrary/146/3i03anmkw7cwyvo0v96xi857k1pxqi8a.jpeg",
      "category": "tea"
   },
   "position9": {
     "name": "Облепиха",
-    "price": "150 руб.",
+    "price": "150 ",
  "photo": "https://www.chay.info/upload/medialibrary/146/3i03anmkw7cwyvo0v96xi857k1pxqi8a.jpeg",
      "category": "tea"
   },
   "position10": {
     "name": "Лайм - мята",
-    "price": "200 руб.",
+    "price": "200 ",
     "photo": "https://www.ethnomir.ru/upload/medialibrary/08e/limonad_1140.jpg",
-    "category": "limonade"
+    "category": "lemonades"
   },
   "position11": {
     "name": "Малина - базилик",
-    "price": "200 руб.",
+    "price": "200 ",
  "photo": "https://www.ethnomir.ru/upload/medialibrary/08e/limonad_1140.jpg",
-     "category": "limonade"
+     "category": "lemonades"
   },
   "position12": {
-    "name": "Облепиха - апельсин",
-    "price": "200 руб.",
+    "name": "Личи - апельсин",
+    "price": "200 ",
  "photo": "https://www.ethnomir.ru/upload/medialibrary/08e/limonad_1140.jpg", 
-    "category": "limonade"
+    "category": "lemonades"
   },
   "position13": {
     "name": "Манго - маракуйа",
-    "price": "200 руб.",
+    "price": "200 ",
  "photo": "https://www.ethnomir.ru/upload/medialibrary/08e/limonad_1140.jpg",
-     "category": "limonade"
+     "category": "lemonades"
   },
   "position14": {
-    "name": "Чизкейк Сан-Себастьян",
-    "price": "250 руб.",
+    "name": "Чизкейк",
+    "price": "250 ",
     "photo": "https://www.calend.ru/img/Articles/2019/desert.jpg",
     "category": "deserts"
   },
   "position15": {
     "name": "Тирамису",
-    "price": "230 руб.",
+    "price": "230 ",
  "photo": "https://www.calend.ru/img/Articles/2019/desert.jpg",
      "category": "deserts"
   },
   "position16": {
     "name": "Наполеон",
-    "price": "210 руб.",
+    "price": "210 ",
  "photo": "https://www.calend.ru/img/Articles/2019/desert.jpg",
      "category": "deserts"
   },
   "position17": {
-    "name": "Анна Павлова",
-    "price": "260 руб.",
+    "name": "Анна-Павлова",
+    "price": "260 ",
  "photo": "https://www.calend.ru/img/Articles/2019/desert.jpg",
      "category": "deserts"
   }
