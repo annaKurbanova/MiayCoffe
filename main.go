@@ -5,9 +5,11 @@ import (
 	// Пакет для работы с авторизацией
 	"MiayCoffe/bazad" // Пакет для работы с базой данных
 	avtorization "MiayCoffe/knowlage/servis"
+	Menu "MiayCoffe/menu"
 	"encoding/json"
 	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 )
 
@@ -26,6 +28,7 @@ func main() {
 	http.HandleFunc("/miay2", PodkluchenieHTMLsCC)
 	http.HandleFunc("/registration", CorsTest)
 	http.HandleFunc("/Vhod", KeisDliaVxoda)
+	http.HandleFunc("/Menu", KeisMenu)
 
 	fmt.Println("Сервер запущен на http://localhost:1324")
 	http.ListenAndServe(":1324", nil)
@@ -99,4 +102,28 @@ func KeisDliaVxoda(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Запрос на вход пользователя получен")
 
 	w.WriteHeader(http.StatusOK)
+}
+func KeisMenu(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("выполняется KeisMenu")
+	//это корсы, это надо просто надо
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "POST")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
+	if r.Method == http.MethodOptions {
+		fmt.Println("Обработан preflight-запрос")
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+	tovars, err := Menu.GetProduct()
+	if err != nil {
+		log.Printf("Ошибка при выполнении запроса: %v", err)
+		http.Error(w, err.Error(), http.StatusBadRequest)
+	}
+
+	err = json.NewEncoder(w).Encode(tovars)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
 }
