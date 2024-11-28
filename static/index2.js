@@ -16,6 +16,12 @@ const button_menu = document.querySelector(".button_menu");
 const fast_menu_modal = document.querySelector(".fast_menu_modal");
 const close_modal = document.querySelector('.close_modal');
 
+const positionsContainer = document.querySelector(".positions");
+const coffee = document.querySelector(".coffee");
+const tea = document.querySelector(".tea");
+const lemonades = document.querySelector(".lemonades");
+const deserts = document.querySelector(".deserts");
+
 
 button_menu.onclick = function(){
     fast_menu_modal.classList.add('active_modal');
@@ -99,3 +105,86 @@ button_entrance.addEventListener("click", () => {
    
     
 });
+
+async function getPositions() {
+    try {
+        // GET-запрос к серверу
+        const response = await fetch('http://localhost:1323/positions', {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        //проверка, что запрос успешный
+        if (!response.ok) {
+            throw new Error(`Ошибка HTTP: ${response.status}`);//получаем ошибки с данными
+        }
+
+        //получаем JSON-строку и парсим в объект
+        const data = await response.json();
+        const parsedData = JSON.parse(data);
+
+       coffee.innerHTML = '';
+       tea.innerHTML = '';
+       lemonades.innerHTML = '';
+       deserts.innerHTML = '';
+
+        // динамические вывод и преобразование в массив
+        Object.values(parsedData).forEach((position) => {
+            if (position.category == "coffee"){ 
+                coffee.innerHTML += `
+                 <div class="position">
+                            <img src="${position.photo}" alt="${position.name}">
+                            <h3>${position.name}</h3>
+                            <div class="price_position">
+                                <button class="add_position">+</button> 
+                                <span class="price_text">${position.price}</span>
+                                <button class="remove_position">-</button>
+                            </div>
+                        </div>
+                `;
+            }else if(position.category == "tea"){
+                tea.innerHTML += `
+                <div class="position">
+                           <img src="${position.photo}" alt="${position.name}">
+                           <h3>${position.name}</h3>
+                           <div class="price_position">
+                               <button class="add_position">+</button> 
+                               <span class="price_text">${position.price}</span>
+                               <button class="remove_position">-</button>
+                           </div>
+                       </div>
+               `;
+            }else if(position.category == "lemonades"){
+                lemonades.innerHTML += `
+                <div class="position">
+                           <img src="${position.photo}" alt="${position.name}">
+                           <h3>${position.name}</h3>
+                           <div class="price_position">
+                               <button class="add_position">+</button> 
+                               <span class="price_text">${position.price}</span>
+                               <button class="remove_position">-</button>
+                           </div>
+                       </div>
+               `;
+            }else if(position.category == "deserts"){
+                deserts.innerHTML += `
+                <div class="position">
+                           <img src="${position.photo}" alt="${position.name}">
+                           <h3>${position.name}</h3>
+                           <div class="price_position">
+                               <button class="add_position">+</button> 
+                               <span class="price_text">${position.price}</span>
+                               <button class="remove_position">-</button>
+                           </div>
+                       </div>
+               `;
+            }
+            
+        });
+    } catch (err) {
+        //ошибки
+        console.error("Ошибка при запросе:", err);
+    }
+}
+
+getPositions();
