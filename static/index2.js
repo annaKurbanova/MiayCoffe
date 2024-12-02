@@ -109,7 +109,7 @@ button_entrance.addEventListener("click", () => {
 async function getPositions() {
     try {
         // GET-запрос к серверу
-        const response = await fetch('http://localhost:1323/positions', {
+        const response = await fetch('http://localhost:1324/Menu', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         });
@@ -121,7 +121,7 @@ async function getPositions() {
 
         //получаем JSON-строку и парсим в объект
         const data = await response.json();
-        const parsedData = JSON.parse(data);
+        //const parsedData = JSON.parse(data);
 
        coffee.innerHTML = '';
        tea.innerHTML = '';
@@ -129,51 +129,51 @@ async function getPositions() {
        deserts.innerHTML = '';
 
         // динамические вывод и преобразование в массив
-        Object.values(parsedData).forEach((position) => {
-            if (position.category == "coffee"){ 
+        Object.values(data).forEach((data) => {
+            if (data.Category === "coffee"){ 
                 coffee.innerHTML += `
                  <div class="position">
-                            <img src="${position.photo}" alt="${position.name}">
-                            <h3>${position.name}</h3>
+                            <img src="${data.Picture}" alt="${data.Name}">
+                            <h3>${data.Name}</h3>
                             <div class="price_position">
                                 <button class="add_position">+</button> 
-                                <span class="price_text">${position.price}</span>
+                                <span class="price_text">${data.Price}</span>
                                 <button class="remove_position">-</button>
                             </div>
                         </div>
                 `;
-            }else if(position.category == "tea"){
+            }else if(data.Category === "tea"){
                 tea.innerHTML += `
                 <div class="position">
-                           <img src="${position.photo}" alt="${position.name}">
-                           <h3>${position.name}</h3>
+                           <img src="${data.Picture}" alt="${data.Name}">
+                           <h3>${data.Name}</h3>
                            <div class="price_position">
                                <button class="add_position">+</button> 
-                               <span class="price_text">${position.price}</span>
+                               <span class="price_text">${data.Price}</span>
                                <button class="remove_position">-</button>
                            </div>
                        </div>
                `;
-            }else if(position.category == "lemonades"){
+            }else if(data.Category === "lemonades"){
                 lemonades.innerHTML += `
                 <div class="position">
-                           <img src="${position.photo}" alt="${position.name}">
-                           <h3>${position.name}</h3>
+                           <img src="${data.Picture}" alt="${data.Name}">
+                           <h3>${data.Name}</h3>
                            <div class="price_position">
                                <button class="add_position">+</button> 
-                               <span class="price_text">${position.price}</span>
+                               <span class="price_text">${data.Price}</span>
                                <button class="remove_position">-</button>
                            </div>
                        </div>
                `;
-            }else if(position.category == "deserts"){
+            }else if(data.Category === "deserts"){
                 deserts.innerHTML += `
                 <div class="position">
-                           <img src="${position.photo}" alt="${position.name}">
-                           <h3>${position.name}</h3>
+                           <img src="${data.Picture}" alt="${data.Name}">
+                           <h3>${data.Name}</h3>
                            <div class="price_position">
                                <button class="add_position">+</button> 
-                               <span class="price_text">${position.price}</span>
+                               <span class="price_text">${data.Price}</span>
                                <button class="remove_position">-</button>
                            </div>
                        </div>
