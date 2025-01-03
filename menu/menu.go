@@ -17,6 +17,11 @@ type Product struct {
 	Picture     string // Ссылка на изображение продукта (соответствует колонке Picture в таблице)
 }
 
+type ProductForCart struct{
+	Product
+	Quantity int
+}
+
 // Функция для получения списка продуктов из базы данных
 func GetProduct() ([]Product, error) {
 	// Создаем срез (массив) структуры Product, который будет заполнен данными из базы
