@@ -21,7 +21,7 @@ var db *pg.DB
 func Connect() {
 	db = pg.Connect(&pg.Options{
 		Addr:     "localhost:5432", // Адрес вашей базы данных
-		User:     "postgres",       // Имя пользователя
+		User:     "superuser",       // Имя пользователя
 		Password: "superuser",      // Ваш пароль
 		Database: "miay",           // Имя базы данных
 	})

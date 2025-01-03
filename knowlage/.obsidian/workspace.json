@@ -11,13 +11,32 @@
             "id": "5ef16f544b3990e1",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Граф"
+              "type": "markdown",
+              "state": {
+                "file": "library/MiayCoffe.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "MiayCoffe"
+            }
+          },
+          {
+            "id": "d25bd6fee66e7d6c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "library/2Журнал Ксения.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2Журнал Ксения"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -154,8 +173,10 @@
       "command-palette:Открыть палитру команд": false
     }
   },
-  "active": "5ef16f544b3990e1",
+  "active": "d25bd6fee66e7d6c",
   "lastOpenFiles": [
+    "library/Корзина и ее редактирование.md",
+    "library/Функции.md",
     "library/MiayCoffe.md",
     "library/1Журнал.md",
     "library/2Журнал Ксения.md",
@@ -163,7 +184,6 @@
     "servis/m",
     "servis/client/client.go",
     "servis/client",
-    "library/Функции.md",
     "library/Вход в систему.md",
     "servis/avtorization/vxod.go",
     "library/Регистрация.md",
@@ -188,7 +208,6 @@
     "library/Перемещение товаров в корзину CRUD.md",
     "library/Оформление заказа.md",
     "library/Отслеживание КПД клиента.md",
-    "library/Корзина и ее редактирование.md",
     "library/Книга обратной связи.md",
     "library/Заказ кофе.md",
     "library/Восстановление паролей.md",
