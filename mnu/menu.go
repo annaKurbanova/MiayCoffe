@@ -1,4 +1,4 @@
-package Menu
+package mnu
 
 import (
 	"MiayCoffe/bazad" // Пакет, содержащий логику подключения к базе данных

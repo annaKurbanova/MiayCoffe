@@ -1,7 +1,7 @@
 package cart
 
 import (
-	"MiayCoffe/Menu"
+	"MiayCoffe/mnu"
 	"MiayCoffe/bazad" // Пакет, содержащий логику подключения к базе данных
 )
 
@@ -18,7 +18,7 @@ type Cart struct {
 
 // структура для массива поля Products
 type CartItems struct {
-	Product  Menu.Product //Структура продукта из пакета Menu
+	Product  mnu.Product //Структура продукта из пакета Menu
 	Quantity int          // Количество товара
 }
 
@@ -31,11 +31,11 @@ func AddToCart(User_id int, Products int, Notes string, quantity int, Total_sum 
 		Select()                       // Выполняем выборку из базы данных
 	if err != nil {
 		if err.Error() == "pg: no rows in result set" {
-
+			// todo sql запрос создание новой строки с корзиной!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		}
-		re
+		return err  
 	}
-	return err
+	return nil
 }
 
 // func Inputcart ()([]Cart,error) {

@@ -5,7 +5,7 @@ import (
 	// Пакет для работы с авторизацией
 	"MiayCoffe/bazad" // Пакет для работы с базой данных
 	avtorization "MiayCoffe/knowlage/servis"
-	Menu "MiayCoffe/menu"
+	"MiayCoffe/mnu"
 	"encoding/json"
 	"fmt"
 	"html/template"
@@ -115,7 +115,7 @@ func KeisMenu(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 		return
 	}
-	tovars, err := Menu.GetProduct()
+	tovars, err := mnu.GetProduct()
 	if err != nil {
 		log.Printf("Ошибка при выполнении запроса: %v", err)
 		http.Error(w, err.Error(), http.StatusBadRequest)
