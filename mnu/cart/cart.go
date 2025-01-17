@@ -1,11 +1,22 @@
 package cart
 
 import (
-	"MiayCoffe/mnu"
 	"MiayCoffe/bazad" // Пакет, содержащий логику подключения к базе данных
+	"MiayCoffe/mnu"
+	"os/user"
 )
 
-
+/*
+create table carts (
+id serial Primary key,
+user_id int not null,
+products json ,
+notes text,
+status text ,
+created_at text,
+total int
+);
+*/
 type Cart struct {
 	Id         int         `pg:"id"`
 	User_id    int         `pg:"user_id"`
@@ -19,24 +30,49 @@ type Cart struct {
 // структура для массива поля Products
 type CartItems struct {
 	Product  mnu.Product //Структура продукта из пакета Menu
-	Quantity int          // Количество товара
+	Quantity int         // Количество товара
 }
 
-func AddToCart(User_id int, Products int, Notes string, quantity int, Total_sum int) error {
-	db := bazad.GetDB()
-	var ActiveCart Cart
-	err := db.Model(&ActiveCart).
-		Where("user_id = ?", User_id). // Фильтруем по User_id
-		Where("status = ?", "Active"). // Фильтруем только по активным корзинам
-		Select()                       // Выполняем выборку из базы данных
-	if err != nil {
-		if err.Error() == "pg: no rows in result set" {
-			// todo sql запрос создание новой строки с корзиной!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// func AddToCart(User_id int) error {
+// 	db := bazad.GetDB()
+// 	var ActiveCart Cart
+// 	err := db.Model(&ActiveCart).
+// 		Where("user_id = ?", User_id). // Фильтруем по User_id
+// 		Where("status = ?", "Active"). // Фильтруем только по активным корзинам
+// 		Select()                       // Выполняем выборку из базы данных
+// 	if err != nil {
+// 		if err.Error() == "pg: no rows in result set" {
+// 			var query string = `
+// 			INSERT INTO carts (user_id, status)
+// 			VALUES (?, ? );`
+// 			db.Query(&ActiveCart, query, User_id, "Active")
+
+// 			return nil
+// 		}
+// 		return err
+// 	}
+// 	return nil
+// }
+
+//Функция для создания корзины 
+func AddToCart (user_id) error{ // Она принимает только user_id и возвращает ошибку наверх, чтобы ее можно было обработать.
+	db := bazad.GetDB() //объявляем переменную и присваиваем подключение к db
+	// Создаем sql запрос SELECT 1- не извлекает значения, а проверят есть ли они, это экономит производительность 
+	query := ` 
+	SELECT 1
+	from carts
+	Where user_id = $1 AND status = 'Active'`
+	if err != 1 {
+		if err.Error() != 1{
+			var query string = `INSERT INTO crts (user_id, status) 
+			VALUES  `
+			
 		}
-		return err  
 	}
-	return nil
-}
+
+
+
+
 
 // func Inputcart ()([]Cart,error) {
 // 	db := bazad.GetDB()
@@ -65,4 +101,4 @@ func AddToCart(User_id int, Products int, Notes string, quantity int, Total_sum 
 // 	}
 // 	return carts, nil
 
-// }
+// } 

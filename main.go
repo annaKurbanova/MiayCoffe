@@ -6,11 +6,13 @@ import (
 	"MiayCoffe/bazad" // Пакет для работы с базой данных
 	avtorization "MiayCoffe/knowlage/servis"
 	"MiayCoffe/mnu"
+	"MiayCoffe/mnu/cart"
 	"encoding/json"
 	"fmt"
 	"html/template"
 	"log"
 	"net/http"
+	
 )
 
 func main() {
@@ -29,6 +31,7 @@ func main() {
 	http.HandleFunc("/registration", CorsTest)
 	http.HandleFunc("/Vhod", KeisDliaVxoda)
 	http.HandleFunc("/Menu", KeisMenu)
+	http.HandleFunc("/AddToCart", KeisDliaAddToCart)
 
 	fmt.Println("Сервер запущен на http://localhost:1324")
 	http.ListenAndServe(":1324", nil)
@@ -124,6 +127,17 @@ func KeisMenu(w http.ResponseWriter, r *http.Request) {
 	err = json.NewEncoder(w).Encode(tovars)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+}
+
+func KeisDliaAddToCart (w http.ResponseWriter, r *http.Request) {
+	fmt.Println("выполняется AddToCart")
+	user_id :=2
+	err :=cart.AddToCart(user_id)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		fmt.Println(err)
 		return
 	}
 }
