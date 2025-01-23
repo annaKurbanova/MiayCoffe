@@ -23,6 +23,7 @@ const lemonades = document.querySelector(".lemonades");
 const deserts = document.querySelector(".deserts");
 
 
+
 button_menu.onclick = function(){
     fast_menu_modal.classList.add('active_modal');
 }
@@ -132,10 +133,10 @@ async function getPositions() {
         Object.values(data).forEach((data) => {
             if (data.Category === "coffee"){ 
                 coffee.innerHTML += `
-                 <div class="position">
+                 <div class="position"  data-id="${data.id}">
                             <img src="${data.Picture}" alt="${data.Name}">
                             <h3>${data.Name}</h3>
-                            <div class="price_position">
+                            <div class="price_position" data-price = "${data.Price}">
                                 <button class="add_position">+</button> 
                                 <span class="price_text">${data.Price}</span>
                                 <button class="remove_position">-</button>
@@ -144,10 +145,10 @@ async function getPositions() {
                 `;
             }else if(data.Category === "tea"){
                 tea.innerHTML += `
-                <div class="position">
+                <div class="position" data-id="${data.id}">
                            <img src="${data.Picture}" alt="${data.Name}">
                            <h3>${data.Name}</h3>
-                           <div class="price_position">
+                           <div class="price_position" data-price = "${data.Price}">
                                <button class="add_position">+</button> 
                                <span class="price_text">${data.Price}</span>
                                <button class="remove_position">-</button>
@@ -156,10 +157,10 @@ async function getPositions() {
                `;
             }else if(data.Category === "lemonades"){
                 lemonades.innerHTML += `
-                <div class="position">
+                <div class="position"  data-id="${data.id}">
                            <img src="${data.Picture}" alt="${data.Name}">
                            <h3>${data.Name}</h3>
-                           <div class="price_position">
+                           <div class="price_position" data-price = "${data.Price}">
                                <button class="add_position">+</button> 
                                <span class="price_text">${data.Price}</span>
                                <button class="remove_position">-</button>
@@ -168,10 +169,10 @@ async function getPositions() {
                `;
             }else if(data.Category === "deserts"){
                 deserts.innerHTML += `
-                <div class="position">
+                <div class="position"  data-id="${data.id}">
                            <img src="${data.Picture}" alt="${data.Name}">
                            <h3>${data.Name}</h3>
-                           <div class="price_position">
+                           <div class="price_position" data-price = "${data.Price}">
                                <button class="add_position">+</button> 
                                <span class="price_text">${data.Price}</span>
                                <button class="remove_position">-</button>
@@ -184,7 +185,64 @@ async function getPositions() {
     } catch (err) {
         //ошибки
         console.error("Ошибка при запросе:", err);
-    }
+    }   
 }
+document.addEventListener('DOMContentLoaded', () => {
+    const updateProductButtons = () => {
+        const pricePositions = document.querySelectorAll('.price_position');
+
+        pricePositions.forEach((pricePosition) => {
+            const price = pricePosition.getAttribute('data-price');
+            const parsedPrice = parseFloat(price);
+
+         
+            pricePosition.addEventListener('click', () => {
+                const addButton = pricePosition.querySelector('.add_position');
+                const removeButton = pricePosition.querySelector('.remove_position');
+                const priceText = pricePosition.querySelector('.price_text');
+
+                if (!addButton.style.display || addButton.style.display === 'none') {
+                    addButton.style.display = 'inline-block';
+                    removeButton.style.display = 'inline-block';
+                    priceText.textContent = '1'; 
+                }
+            });
+
+        // обработчик для кнопки +
+            const addButton = pricePosition.querySelector('.add_position');
+            addButton.addEventListener('click', (e) => {
+                e.stopPropagation(); 
+                const quantity = pricePosition.querySelector('.price_text');
+                quantity.textContent = parseInt(quantity.textContent) + 1;
+            });
+
+            // обработчик для кнопки -
+            const removeButton = pricePosition.querySelector('.remove_position');
+            removeButton.addEventListener('click', (e) => {
+                e.stopPropagation(); 
+                const quantity = pricePosition.querySelector('.price_text');
+                const currentQuantity = parseInt(quantity.textContent);
+
+                if (currentQuantity > 1) {
+                    quantity.textContent = currentQuantity - 1;
+                } else {
+                    // Возвращаем исходное состояние
+                    removeButton.style.display = 'none';
+                    addButton.style.display = 'none';
+                    quantity.textContent = price; 
+                }
+            });
+
+            
+            pricePosition.querySelector('.add_position').style.display = 'none';
+            pricePosition.querySelector('.remove_position').style.display = 'none';
+        });
+    };
+    // вызываем обновление
+    getPositions().then(() => updateProductButtons());
+});
+
 
 getPositions();
+
+

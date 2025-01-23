@@ -164,7 +164,7 @@ h1{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 500;
     }
-    input{
+    .field input{
     width: 300px;
     padding: 13px 7px;
     margin:13px 0 35px 0;
@@ -293,4 +293,106 @@ color: rgba(0, 0, 0, 0.78);
 .price_text {
     font-size: 18px; 
     font-weight: bold; 
+}
+.body_editing{
+    width: 720px;
+    background-color:  rgba(204, 204, 204, 0.879);
+    position: relative;
+    margin-bottom: 60px;
+}
+.position_editing{
+    border: 1px solid rgba(0, 0, 0, 0.735);
+    border-radius: 30px;
+    width: 500px;
+    overflow: hidden;
+    margin: 20px 25px 30px 26px;
+    background-color:whitesmoke;
+    position: relative;
+}
+.position_editing img{
+    width: 498px;
+    margin-bottom: 10px;
+}
+.field_editing{
+    color: rgba(0, 0, 0, 0.61);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    margin: 10px 0 0 30px;
+}
+.field_editing input{
+    width: 350px;
+    padding: 7px;
+    margin:13px 0 10px 0;
+    background-color: whitesmoke;
+    border: 0.5px solid rgba(0, 0, 0, 0.672);
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.field_editing select{
+    color: rgba(0, 0, 0, 0.632);
+    font-family: 'Times New Roman', Times, serif;
+    background-color: whitesmoke;
+    border: 0.5px solid rgba(0, 0, 0, 0.672);
+    border-radius: 5px;
+    font-size: 20px;
+    padding:7px;
+    margin:13px 0 20px 0;  
+    width: 350px;
+}
+.editing h1{
+    color: rgba(0, 0, 0, 0.61);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 35px;
+    margin: 10px 0 0 30px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+#button_editing{
+    background-color:  rgba(204, 204, 204, 0.879);
+    border: 0.5px solid black;
+    padding: 7px 31px 7px 31px;
+    margin: 10px 0 30px 30px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgba(0, 0, 0, 0.764);
+}
+#delete_position{
+    background-color:  rgba(204, 204, 204, 0.879);
+    border: 0.5px solid black;
+    padding: 7px 31px 7px 31px;
+    margin: 10px 0 30px 30px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgba(0, 0, 0, 0.764);
+    position: absolute;
+   bottom: 0;
+   right: 30px;
+}
+#add_new_position{
+    background-color:  whitesmoke;
+    border: 0.5px solid black;
+    padding: 7px 20px 7px 20px;
+    margin: 0 0 30px 30px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgba(0, 0, 0, 0.643);
+    position: absolute;
+   top: 2px;
+   left:290px ;
+}
+.back_to_home{
+    background-color:  whitesmoke;
+    border: 0.5px solid black;
+    padding: 7px 20px 7px 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgba(0, 0, 0, 0.643);
+   text-decoration: none;
+position: relative;
+left: 220px;
 }
